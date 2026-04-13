@@ -8,6 +8,61 @@ Local AI video generation pipeline — animate images with **Wan 2.2 GGUF**, gen
 
 ---
 
+## Quick start
+
+```bash
+# Check ComfyUI is running
+python cli.py status
+
+# Start ComfyUI if it isn't
+python cli.py start
+
+# Animate an image
+python cli.py animate photo.png --prompt "head turns slowly, soft light"
+
+# Portrait, fast mode
+python cli.py animate photo.png --prompt "..." --portrait --fast
+
+# Web UI
+python app.py        # opens at http://localhost:7860
+```
+
+---
+
+## CLI (`cli.py`)
+
+```bash
+python cli.py animate IMAGE --prompt "..." [options]
+```
+
+| Flag | Default | Notes |
+|------|---------|-------|
+| `--model` | `wan-gguf` | `wan-gguf` · `ltx` · `wan-fp8` |
+| `--portrait` | off | Sets 480×832 |
+| `--fast` | off | 41 frames, 15 steps (~4 min) |
+| `--frames` | `81` | Must be `4n+1` |
+| `--steps` | `20` | |
+| `--seed` | random | |
+| `--output` | `./outputs` | |
+
+```bash
+python cli.py status   # check if ComfyUI is running
+python cli.py start    # start ComfyUI on port 8189
+```
+
+---
+
+## Web UI (`app.py`)
+
+```bash
+pip install gradio
+python app.py
+```
+
+Opens at **http://localhost:7860** — upload an image, describe the motion, hit Generate.
+
+---
+
 ## Scripts
 
 ### `wan_gguf_generate.py` — Wan 2.2 GGUF Q4_K_M (recommended)
