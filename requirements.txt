@@ -1,0 +1,13 @@
+# ai2videogen script dependencies
+#
+# All three scripts (generate.py, ltx_generate.py, wan_gguf_generate.py) use
+# only Python standard library modules:
+#   argparse, json, mimetypes, os, pathlib, sys, time, urllib, uuid
+#
+# No pip packages are required to run the scripts themselves.
+
+# ComfyUI server dependencies (install separately in your ComfyUI environment)
+# pip install -r ~/ComfyUI/requirements.txt
+
+# Optional: reduces VRAM usage during generation
+# pip install sageattention
